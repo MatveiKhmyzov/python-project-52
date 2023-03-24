@@ -76,6 +76,7 @@ body {
   border-bottom-color: #fff;
 }
 
+
 @media (min-width: 48em) {
   .masthead-brand {
     float: left;
@@ -104,3 +105,19 @@ body {
 .mastfoot {
   color: rgba(255, 255, 255, .5);
 }
+
+tr {
+  color: white;
+}
+
+tbody {
+  background-color: #008947;
+}
+
+thead {
+  background-color: #008947;
+}
+
+tr:hover {
+  background-color: green;
+ }

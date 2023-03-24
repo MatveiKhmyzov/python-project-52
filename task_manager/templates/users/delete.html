@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+{% block additionalStyles %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'static/index.css' %}" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
+{% endblock %}
+{% block content %}
+    <h1 class="my-4">{{ title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{ object }}"?</p>
+        {{ form }}
+        <input type="submit" value="Yes, delete">
+    </form>
+{% endblock %}
