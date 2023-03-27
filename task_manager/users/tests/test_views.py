@@ -15,7 +15,7 @@ class TestCreateUserView(TestCase):
         response = self.client.post(reverse_lazy('create_user'))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(self.user.first_name, 'Alan')
-        self.assertTemplateUsed(response, 'users/update.html')
+        self.assertTemplateUsed(response, 'common_create_update.html')
 
 
 class TestUpdateUserView(TestCase):
@@ -32,7 +32,8 @@ class TestUpdateUserView(TestCase):
             reverse_lazy('update_user', kwargs={'pk': self.user1.pk})
         )
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='users/update.html')
+        self.assertTemplateUsed(response,
+                                template_name='common_create_update.html')
 
     def test_update_by_not_login_user(self):
         response = self.client.get(

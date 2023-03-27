@@ -11,8 +11,6 @@ migrate:
 	poetry run python manage.py migrate
 shell:
 	python manage.py shell_plus
-test:
-	poetry run python manage.py test task_manager
 test coverage:
 	poetry run coverage run --source='.' manage.py test task_manager
 lint:

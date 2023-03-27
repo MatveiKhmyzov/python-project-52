@@ -44,7 +44,7 @@ class UpdateUser(RequiredLoginUserMixin,
                  SuccessMessageMixin,
                  UpdateView):
     model = CustomUser
-    template_name = 'users/update.html'
+    template_name = 'common_create_update.html'
     form_class = UserForm
     context_object_name = 'users'
     success_url = reverse_lazy('user_list')
@@ -58,7 +58,7 @@ class UpdateUser(RequiredLoginUserMixin,
 
 class CreateUser(SuccessMessageMixin, CreateView):
     model = CustomUser
-    template_name = 'users/update.html'
+    template_name = 'common_create_update.html'
     form_class = UserForm
     success_url = reverse_lazy('login_user')
     success_message = _("User successfully registered")
@@ -74,7 +74,7 @@ class DeleteUser(RequiredLoginUserMixin,
                  SuccessMessageMixin,
                  DeleteView):
     model = CustomUser
-    template_name = 'users/delete.html'
+    template_name = 'common_delete.html'
     extra_context = {'page_title': _('Task Manager')}
     success_message = _("User deleted successfully")
     success_url = reverse_lazy('user_list')

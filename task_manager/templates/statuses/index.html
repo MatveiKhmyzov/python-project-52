@@ -5,28 +5,28 @@
     <link href="{% static 'static/index.css' %}" rel="stylesheet">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
 {% endblock %}
+{% load i18n %}
 {% block content %}
         <h1 class="my-4">{{ title }} </h1>
+            <a href="{% url 'create_status' %}">{% translate "Create status" %}</a>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Имя пользователя</th>
-                        <th>Полное имя</th>
+                        <th>Имя</th>
                         <th>Дата создания</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for user in users %}
+                    {% for status in statuses %}
                     <tr>
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.first_name }} {{ user.last_name }}</td>
-                        <td>{{ user.date_joined | date:"d.m.Y H:s" }}</td>
-                        <td><a href="{% url 'update_user' pk=user.pk %}">Изменить</a>
+                        <td>{{ status.id }}</td>
+                        <td>{{ status.name }}</td>
+                        <td>{{ status.date_create | date:"d.m.Y H:s" }}</td>
+                        <td><a href="{% url 'update_status' pk=status.pk %}">{% translate "Update" %}</a>
                             <br>
-                            <a href="{% url 'delete_user' pk=user.pk %}">Удалить</a>
+                            <a href="{% url 'delete_status' pk=status.pk %}">{% translate "Delete" %}</a>
                         </td>
                     </tr>
                     {%endfor%}
