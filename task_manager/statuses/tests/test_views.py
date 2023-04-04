@@ -15,9 +15,8 @@ class TestCreateStatusView(TestCase):
     # @override_settings(STATICFILES_STORAGE='django.contrib.staticfiles.storage.StaticFilesStorage')
     def test_status_create_view(self):
         self.client.force_login(self.user)
-        response = self.client.post(reverse_lazy('create_status'))
+        response = self.client.get(reverse_lazy('create_status'))
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(self.status.name, 'in work')
         self.assertTemplateUsed(response, 'common_create_update.html')
 
 

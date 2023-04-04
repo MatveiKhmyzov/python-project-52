@@ -18,5 +18,15 @@
          "first_name":"Lilly",
          "last_name":"Stain"
       }
+   },
+   {
+      "model": "users.customuser",
+      "pk": 3,
+      "fields":{
+         "username":"Pad",
+         "password":"ed5v",
+         "first_name":"Piter",
+         "last_name":"Paddy"
+      }
    }
 ]

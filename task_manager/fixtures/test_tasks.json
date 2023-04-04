@@ -1,0 +1,20 @@
+{
+   "create": {
+      "fields": {
+         "name": "read book",
+         "description": "Very interesting book",
+         "status": 1,
+         "executor": "",
+         "labels": ""
+      }
+   },
+   "update": {
+      "fields": {
+         "name": "buy a bread",
+         "description": "very tasty bread",
+         "status": 2,
+         "executor": 1,
+         "labels": ""
+      }
+   }
+}

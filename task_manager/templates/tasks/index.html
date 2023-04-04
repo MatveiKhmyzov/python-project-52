@@ -6,28 +6,33 @@
     <link href="{% static 'static/index.css' %}" rel="stylesheet">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
 {% endblock %}
-{% load i18n %}
 {% block content %}
         <h1 class="my-4">{{ title }} </h1>
-            <a href="{% url 'create_status' %}">{% translate "Create status" %}</a>
+            <a href="{% url 'create_task' %}">{% translate "Create task" %}</a>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>{% translate "Name" %}</th>
+                        <th>{% translate "Status" %}</th>
+                        <th>{% translate "Author" %}</th>
+                        <th>{% translate "Executor" %}</th>
                         <th>{% translate "Date of creation" %}</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for status in statuses %}
+                    {% for task in tasks %}
                     <tr>
-                        <td>{{ status.id }}</td>
-                        <td>{{ status.name }}</td>
-                        <td>{{ status.date_create | date:"d.m.Y H:s" }}</td>
-                        <td><a href="{% url 'update_status' pk=status.pk %}">{% translate "Change" %}</a>
+                        <td>{{ task.id }}</td>
+                        <td>{{ task.name }}</td>
+                        <td>{{ task.status }}</td>
+                        <td>{{ task.author|default_if_none:'' }}</td>
+                        <td>{{ task.executor|default_if_none:'' }}</td>
+                        <td>{{ task.date_create| date:"d.m.Y H:s" }}</td>
+                        <td><a href="{% url 'update_task' pk=task.pk %}">{% translate "Change" %}</a>
                             <br>
-                            <a href="{% url 'delete_status' pk=status.pk %}">{% translate "Delete" %}</a>
+                            <a href="{% url 'delete_task' pk=task.pk %}">{% translate "Delete" %}</a>
                         </td>
                     </tr>
                     {%endfor%}

@@ -181,11 +181,14 @@ LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
         messages.INFO: 'alert-info',
+        messages.ERROR: 'alert-danger',
         messages.SUCCESS: 'alert-success',
         messages.WARNING: 'alert-warning',
-        messages.ERROR: 'alert-danger',
 }
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.railway.app'
+    'https://127.0.0.1:8000',
+    'https://localhost',
+    'https://0.0.0.0'
 ]

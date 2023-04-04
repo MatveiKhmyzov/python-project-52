@@ -1,8 +1,8 @@
 from .forms import UserForm
 from .models import CustomUser
-from task_manager.mixins import (CustomUserPassesTestMixin,
-                                 RequiredLoginUserMixin,
-                                 )
+from ..mixins import (CustomUserPassesTestMixin,
+                      RequiredLoginUserMixin,
+                      ProtectDeletionView)
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -15,18 +15,6 @@ from django.views.generic import (
 from django.utils.translation import gettext as _
 from django.urls import reverse_lazy
 from django.contrib import messages
-
-
-# menu = [
-#         {'brand': {{'title': "Task Manager", 'url_name': 'about'}}},
-#         {'menu': {{'title': "Users", 'url_name': 'user_list'},
-#                   {'title': "Statuses", 'url_name': 'status_list'},
-#                   {'title': "Tags", 'url_name': 'status_list'},
-#                   {'title': "Tasks", 'url_name': 'status_list'}},
-#          },
-#         {'auth': {{'title': "Entrance", 'url_name': 'user_list'},
-#                   {'title': "Registration", 'url_name': 'user_list'}}}
-# ]
 
 
 class UserIndex(ListView):
@@ -72,12 +60,17 @@ class CreateUser(SuccessMessageMixin, CreateView):
 class DeleteUser(RequiredLoginUserMixin,
                  CustomUserPassesTestMixin,
                  SuccessMessageMixin,
+                 ProtectDeletionView,
                  DeleteView):
     model = CustomUser
     template_name = 'common_delete.html'
     extra_context = {'page_title': _('Task Manager')}
     success_message = _("User deleted successfully")
     success_url = reverse_lazy('user_list')
+
+    def form_invalid(self, form):
+        messages.error(self.request, self.error_message)
+        return super().form_invalid(form)
 
 
 class LoginUser(SuccessMessageMixin, LoginView):
@@ -101,3 +94,6 @@ class LogoutUser(LogoutView):
         response = super().dispatch(request, *args, **kwargs)
         messages.add_message(request, messages.INFO, self.success_message)
         return response
+
+
+# print(DeleteUser.__mro__)

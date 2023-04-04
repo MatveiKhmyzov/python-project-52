@@ -15,3 +15,5 @@ test coverage:
 	poetry run coverage run --source='.' manage.py test task_manager
 lint:
 	poetry run flake8 task_manager
+translate:
+	poetry run django-admin makemessages -l ru
