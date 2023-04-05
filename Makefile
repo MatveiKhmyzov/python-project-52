@@ -20,4 +20,5 @@ lint:
 translate:
 	poetry run django-admin makemessages -l ru
 test-coverage:
-	poetry run coverage run manage.py test && coverage report && coverage xml
+	poetry run coverage run manage.py test
+	poetry run coverage report -m --include=task_manager/* --omit=task_manager/settings.py
