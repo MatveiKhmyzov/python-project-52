@@ -109,7 +109,7 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 #     }
 # }
 
-# DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASE_URL = os.getenv('DATABASE_URL')  # For django_db production
 DATABASES = {
     # 'default': dj_database_url.parse(DATABASE_URL)
     'default': dj_database_url.config(
