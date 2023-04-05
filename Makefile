@@ -1,3 +1,5 @@
+install:
+	poetry install
 run:
 	poetry run python manage.py runserver
 PORT ?= 8000
