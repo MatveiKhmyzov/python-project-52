@@ -9,8 +9,7 @@
          "executor": null,
          "labels": null,
          "author": 1,
-         "date_create": "2023-03-28T10:06:00.406Z",
-         "date_update": "2023-03-28T10:06:00.406Z"
+         "date_create": "2023-03-28T10:06:00.406Z"
       }
    },
     {
@@ -23,8 +22,7 @@
          "executor": 1,
          "labels": null,
          "author": 2,
-         "date_create": "2023-03-28T15:56:49.406Z",
-         "date_update": "2023-03-28T15:56:49.406Z"
+         "date_create": "2023-03-28T15:56:49.406Z"
       }
    }
 ]
