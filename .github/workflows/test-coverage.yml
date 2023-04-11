@@ -23,4 +23,4 @@ jobs:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
       with:
-         coverageCommand: make tests-coverage
+         coverageCommand: make test-coverage
