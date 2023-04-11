@@ -1,0 +1,20 @@
+{
+  "create": {
+    "fields": {
+      "username": "ElPi",
+      "password1": "13Rq",
+      "password2": "13Rq",
+      "first_name": "Ellie",
+      "last_name": "Pillow"
+    }
+  },
+  "update": {
+    "fields": {
+      "username": "AlOne",
+      "password1": "Dr%<1",
+      "password2": "Dr%<1",
+      "first_name": "Ron",
+      "last_name": "Conner"
+    }
+  }
+}

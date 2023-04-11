@@ -7,7 +7,7 @@
          "description": "Very interesting book",
          "status": 1,
          "executor": null,
-         "labels": null,
+         "labels": [],
          "author": 1,
          "date_create": "2023-03-28T10:06:00.406Z"
       }
@@ -20,7 +20,7 @@
          "description": "wash with shampoo",
          "status": 1,
          "executor": 1,
-         "labels": null,
+         "labels": [2,3],
          "author": 2,
          "date_create": "2023-03-28T15:56:49.406Z"
       }

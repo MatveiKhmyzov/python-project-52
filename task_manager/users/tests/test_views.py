@@ -1,6 +1,7 @@
 from django.test import TestCase
 from task_manager.users.models import CustomUser
 from django.urls import reverse_lazy
+from task_manager.utils import get_data
 
 
 class TestCreateUserView(TestCase):
@@ -11,10 +12,20 @@ class TestCreateUserView(TestCase):
         cls.user = CustomUser.objects.get(pk=1)
 
     # @override_settings(STATICFILES_STORAGE='django.contrib.staticfiles.storage.StaticFilesStorage')
-    def test_user_create_view(self):
+    def test_user_create_view_availability(self):
         response = self.client.get(reverse_lazy('create_user'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'common_create_update.html')
+
+    def test_user_create(self):
+        user_data = get_data('test_users.json')
+        create_user_data = user_data['create']['fields']
+        response = self.client.post(reverse_lazy('create_user'),
+                                    create_user_data)
+        new_user = CustomUser.objects.get(pk=4)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(str(new_user), 'Ellie Pillow')
+        self.assertRedirects(response, reverse_lazy('login_user'))
 
 
 class TestUpdateUserView(TestCase):
@@ -25,14 +36,26 @@ class TestUpdateUserView(TestCase):
         cls.user1 = CustomUser.objects.get(pk=1)
         cls.user2 = CustomUser.objects.get(pk=2)
 
-    def test_update_yourself(self):
+    def test_update_user_availability(self):
         self.client.force_login(self.user1)
-        response = self.client.post(
+        response = self.client.get(
             reverse_lazy('update_user', kwargs={'pk': self.user1.pk})
         )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response,
                                 template_name='common_create_update.html')
+
+    def test_user_update(self):
+        user_data = get_data('test_users.json')
+        update_user_data = user_data['update']['fields']
+        self.client.force_login(self.user1)
+        response = self.client.post(
+            reverse_lazy('update_user', kwargs={'pk': self.user1.pk}),
+            update_user_data)
+        updated_user = CustomUser.objects.get(pk=1)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(str(updated_user), 'Ron Conner')
+        self.assertRedirects(response, reverse_lazy('user_list'))
 
     def test_update_by_not_login_user(self):
         response = self.client.get(
@@ -44,14 +67,14 @@ class TestUpdateUserView(TestCase):
     # @override_settings(STATICFILES_STORAGE='django.contrib.staticfiles.storage.StaticFilesStorage')
     def test_update_not_yourself(self):
         self.client.force_login(self.user1)
-        response = self.client.post(reverse_lazy('update_user',
-                                                 kwargs={'pk': self.user2.pk}))
+        response = self.client.get(
+            reverse_lazy('update_user', kwargs={'pk': self.user2.pk}))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('user_list'))
 
 
 class TestDeleteUserView(TestCase):
-    fixtures = ['users.json', 'statuses.json', 'tasks.json']
+    fixtures = ['users.json', 'statuses.json', 'tasks.json', 'labels.json']
 
     @classmethod
     def setUpTestData(cls):

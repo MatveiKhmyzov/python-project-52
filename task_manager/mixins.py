@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic.detail import SingleObjectMixin
 from task_manager.users.models import CustomUser
+from task_manager.labels.models import Label
 
 
 class RequiredLoginUserMixin(LoginRequiredMixin):
@@ -49,7 +50,7 @@ class TaskAuthorPassesTestMixin(UserPassesTestMixin):
         return redirect('task_list')
 
 
-class ProtectDeletionView(SingleObjectMixin, View):
+class ProtectDeletionUserView(SingleObjectMixin, View):
     model = CustomUser
 
     def __init__(self, **kwargs):
@@ -60,8 +61,31 @@ class ProtectDeletionView(SingleObjectMixin, View):
         self.object = self.get_object()
         try:
             self.object.delete()
+            messages.add_message(request, messages.SUCCESS,
+                                 'User deleted successfully')
             return HttpResponseRedirect(reverse_lazy('user_list'))
         except ProtectedError:
             messages.add_message(request, messages.ERROR,
                                  'Cannot delete user because it is in use')
             return HttpResponseRedirect(reverse_lazy('user_list'))
+
+
+class ProtectDeletionLabelView(SingleObjectMixin, View):
+    model = Label
+    unused_labels = Label.objects.filter(tasks__isnull=True)
+
+    def __init__(self, **kwargs):
+        super().__init__()
+        self.object = None
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object in self.unused_labels:
+            self.object.delete()
+            messages.add_message(request, messages.SUCCESS,
+                                 'Label deleted successfully')
+            return HttpResponseRedirect(reverse_lazy('label_list'))
+        else:
+            messages.add_message(request, messages.ERROR,
+                                 'Cannot delete label because it is in use')
+            return HttpResponseRedirect(reverse_lazy('label_list'))

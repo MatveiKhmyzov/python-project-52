@@ -7,7 +7,7 @@ from task_manager.utils import get_data
 
 
 class TestCreateTaskView(TestCase):
-    fixtures = ['users.json', 'statuses.json', 'tasks.json']
+    fixtures = ['users.json', 'statuses.json', 'tasks.json', 'labels.json']
 
     @classmethod
     def setUpTestData(cls):
@@ -29,13 +29,14 @@ class TestCreateTaskView(TestCase):
         self.client.force_login(self.user)
         response = self.client.post(reverse_lazy('create_task'),
                                     create_task_data)
+
         self.assertEqual(response.status_code, 302)
         self.assertEqual(self.task.author_id, self.user.id)
         self.assertRedirects(response, reverse_lazy('task_list'))
 
 
 class TestUpdateTaskView(TestCase):
-    fixtures = ['users.json', 'statuses.json', 'tasks.json']
+    fixtures = ['users.json', 'statuses.json', 'tasks.json', 'labels.json']
 
     @classmethod
     def setUpTestData(cls):
@@ -66,7 +67,7 @@ class TestUpdateTaskView(TestCase):
 
 
 class TestDeleteTaskView(TestCase):
-    fixtures = ['users.json', 'statuses.json', 'tasks.json']
+    fixtures = ['users.json', 'statuses.json', 'tasks.json', 'labels.json']
 
     @classmethod
     def setUpTestData(cls):

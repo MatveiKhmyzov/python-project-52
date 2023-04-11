@@ -1,7 +1,7 @@
 from django.db import models
 from task_manager.statuses.models import Status
 from task_manager.users.models import CustomUser
-from task_manager.tags.models import Label
+from task_manager.labels.models import Label
 
 
 class Task(models.Model):
@@ -11,17 +11,16 @@ class Task(models.Model):
     status = models.ForeignKey(Status, on_delete=models.CASCADE)
     executor = models.ForeignKey(CustomUser,
                                  on_delete=models.PROTECT,
-                                 related_name='executor_task_set',
+                                 related_name='executors',
                                  blank=True,
                                  null=True
                                  )
-    labels = models.ForeignKey(Label,
-                               on_delete=models.CASCADE,
-                               blank=True,
-                               null=True)
+    labels = models.ManyToManyField(Label,
+                                    related_name='tasks',
+                                    blank=True)
     author = models.ForeignKey(CustomUser,
                                on_delete=models.PROTECT,
-                               related_name='author_task_set'
+                               related_name='authors'
                                )
     date_create = models.DateTimeField(auto_now_add=True)
 

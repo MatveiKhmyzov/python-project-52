@@ -2,7 +2,7 @@ from .forms import UserForm
 from .models import CustomUser
 from ..mixins import (CustomUserPassesTestMixin,
                       RequiredLoginUserMixin,
-                      ProtectDeletionView)
+                      ProtectDeletionUserView)
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -59,18 +59,17 @@ class CreateUser(SuccessMessageMixin, CreateView):
 
 class DeleteUser(RequiredLoginUserMixin,
                  CustomUserPassesTestMixin,
-                 SuccessMessageMixin,
-                 ProtectDeletionView,
+                 ProtectDeletionUserView,
                  DeleteView):
     model = CustomUser
     template_name = 'common_delete.html'
-    extra_context = {'page_title': _('Task Manager')}
+    extra_context = {'page_title': _('Deleting a user')}
     success_message = _("User deleted successfully")
     success_url = reverse_lazy('user_list')
 
-    def form_invalid(self, form):
-        messages.error(self.request, self.error_message)
-        return super().form_invalid(form)
+    # def form_invalid(self, form):
+    #     messages.error(self.request, self.error_message)
+    #     return super().form_invalid(form)
 
 
 class LoginUser(SuccessMessageMixin, LoginView):
@@ -94,6 +93,3 @@ class LogoutUser(LogoutView):
         response = super().dispatch(request, *args, **kwargs)
         messages.add_message(request, messages.INFO, self.success_message)
         return response
-
-
-# print(DeleteUser.__mro__)

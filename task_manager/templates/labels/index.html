@@ -9,7 +9,7 @@
 {% load i18n %}
 {% block content %}
         <h1 class="my-4">{{ page_title }} </h1>
-            <a href="{% url 'create_status' %}">{% translate "Create status" %}</a>
+            <a href="{% url 'create_label' %}">{% translate "Create label" %}</a>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -20,14 +20,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for status in statuses %}
+                    {% for label in labels %}
                     <tr>
-                        <td>{{ status.id }}</td>
-                        <td>{{ status.name }}</td>
-                        <td>{{ status.date_create | date:"d.m.Y H:s" }}</td>
-                        <td><a href="{% url 'update_status' pk=status.pk %}">{% translate "Change" %}</a>
+                        <td>{{ label.id }}</td>
+                        <td>{{ label.name }}</td>
+                        <td>{{ label.date_create | date:"d.m.Y H:s" }}</td>
+                        <td><a href="{% url 'update_label' pk=label.pk %}">{% translate "Change" %}</a>
                             <br>
-                            <a href="{% url 'delete_status' pk=status.pk %}">{% translate "Delete" %}</a>
+                            <a href="{% url 'delete_label' pk=label.pk %}">{% translate "Delete" %}</a>
                         </td>
                     </tr>
                     {%endfor%}

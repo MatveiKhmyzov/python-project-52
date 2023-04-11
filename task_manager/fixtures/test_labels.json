@@ -1,0 +1,14 @@
+{
+  "create": {
+    "fields": {
+      "name": "summer",
+      "date_create": "2023-04-04T04:12:37.312Z"
+    }
+  },
+  "update": {
+    "fields":{
+      "name": "elephant",
+      "date_create": "2023-02-21T10:08:36.151Z"
+    }
+  }
+}

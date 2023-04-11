@@ -2,7 +2,7 @@ from django.test import TestCase
 from task_manager.statuses.models import Status
 
 
-class TestCustomUserModel(TestCase):
+class TestStatusModel(TestCase):
     fixtures = ['statuses.json']
 
     @classmethod
@@ -10,5 +10,5 @@ class TestCustomUserModel(TestCase):
         cls.status = Status.objects.get(pk=2)
 
     def test_string_representation_of_status(self):
-        expected_represenatation_status = 'on testing'
-        self.assertEqual(expected_represenatation_status, str(self.status))
+        expected_representation_status = 'on testing'
+        self.assertEqual(expected_representation_status, str(self.status))

@@ -4,8 +4,7 @@
          "name": "read book",
          "description": "Very interesting book",
          "status": 1,
-         "executor": "",
-         "labels": ""
+         "executor": ""
       }
    },
    "update": {
@@ -13,8 +12,7 @@
          "name": "buy a bread",
          "description": "very tasty bread",
          "status": 2,
-         "executor": 1,
-         "labels": ""
+         "executor": 1
       }
    }
 }

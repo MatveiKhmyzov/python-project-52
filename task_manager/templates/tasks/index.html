@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
 {% endblock %}
 {% block content %}
-        <h1 class="my-4">{{ title }} </h1>
+        <h1 class="my-4">{{ page_title }} </h1>
             <a href="{% url 'create_task' %}">{% translate "Create task" %}</a>
             <table class="table table-striped">
                 <thead>
@@ -25,7 +25,9 @@
                     {% for task in tasks %}
                     <tr>
                         <td>{{ task.id }}</td>
-                        <td>{{ task.name }}</td>
+                        <td>
+                            <a  href="{% url 'task_card' pk=task.pk %}">{{ task.name }}</a>
+                        </td>
                         <td>{{ task.status }}</td>
                         <td>{{ task.author|default_if_none:'' }}</td>
                         <td>{{ task.executor|default_if_none:'' }}</td>

@@ -6,7 +6,7 @@
 a,
 a:focus,
 a:hover {
-  color: #fff;
+  color: #2E5EDF;
 }
 
 /* Custom default button */
@@ -27,7 +27,7 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #1D382A;
+  background-color: #1D382A; /* общий фон без навигационного меню */
 }
 
 body {
@@ -121,3 +121,17 @@ thead {
 tr:hover {
   background-color: green;
  }
+ 
+.card-body {
+  background-color: #007A20;
+
+}
+
+.card-header {
+  background-color: #1D382A;
+
+}
+
+.nav-color {
+  color: #ffff;
+}

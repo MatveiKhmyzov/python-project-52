@@ -16,8 +16,8 @@ class StatusIndex(ListView):
     model = Status
     template_name = 'statuses/index.html'
     extra_context = {
-        'page_title': _('Task Manager'),
-        'title': _('Statuses'),
+        'browser_tab_title': _('Task Manager'),
+        'page_title': _('Statuses'),
     }
     context_object_name = 'statuses'
 
@@ -32,8 +32,8 @@ class UpdateStatus(RequiredLoginUserMixin,
     success_url = reverse_lazy('status_list')
     success_message = _("Status changed successfully")
     extra_context = {
-            'page_title': _('Task Manager'),
-            'title': _('Change status'),
+            'browser_tab_title': _('Task Manager'),
+            'page_title': _('Change status'),
             'button_text': _('Change'),
         }
 
@@ -45,8 +45,8 @@ class CreateStatus(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('status_list')
     success_message = _("Status created successfully")
     extra_context = {
-        'page_title': _('Task Manager'),
-        'title': _('Create status'),
+        'browser_tab_title': _('Task Manager'),
+        'page_title': _('Create status'),
         'button_text': _('Create'),
     }
 
@@ -56,6 +56,6 @@ class DeleteStatus(RequiredLoginUserMixin,
                    DeleteView):
     model = Status
     template_name = 'common_delete.html'
-    extra_context = {'page_title': _('Task Manager')}
+    extra_context = {'page_title': _('Delete status')}
     success_message = _("Status deleted successfully")
     success_url = reverse_lazy('status_list')
