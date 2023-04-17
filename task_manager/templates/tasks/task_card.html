@@ -45,9 +45,10 @@
                           </div>
                       </div>
                       <div class="row p-1">
-                          <a href="{% url 'update_task' pk=task.pk %}">{% translate "Change" %}</a>
-                          <br>
-                          <a href="{% url 'delete_task' pk=task.pk %}">{% translate "Delete" %}</a>
+                          <ul style="list-style: none">
+                              <li><a href="{% url 'update_task' pk=task.pk %}">{% translate "Change" %}</a></li>
+                              <li><a href="{% url 'delete_task' pk=task.pk %}">{% translate "Delete" %}</a></li>
+                          </ul>
                       </div>
                   </div>
               </div>

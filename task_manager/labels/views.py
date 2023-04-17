@@ -21,6 +21,7 @@ class LabelIndex(ListView):
         'page_title': _('Labels'),
     }
     context_object_name = 'labels'
+    paginate_by = 10
 
 
 class UpdateLabel(RequiredLoginUserMixin,

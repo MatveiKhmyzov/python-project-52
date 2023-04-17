@@ -20,6 +20,7 @@ class StatusIndex(ListView):
         'page_title': _('Statuses'),
     }
     context_object_name = 'statuses'
+    paginate_by = 10
 
 
 class UpdateStatus(RequiredLoginUserMixin,

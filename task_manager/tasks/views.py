@@ -1,11 +1,12 @@
 from .forms import TaskForm
 from .models import Task
 from .models import Label
+from .filters import TaskFilter
+from django_filters.views import FilterView
 from task_manager.mixins import (RequiredLoginUserMixin,
                                  TaskAuthorPassesTestMixin)
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import (
-                                ListView,
                                 UpdateView,
                                 CreateView,
                                 DeleteView,
@@ -15,15 +16,19 @@ from django.utils.translation import gettext as _
 from django.urls import reverse_lazy
 
 
-class TaskIndex(ListView):
+class TaskIndex(FilterView):
     model = Task
     template_name = 'tasks/index.html'
     extra_context = {
         'browser_tab_title': _('Task Manager'),
         'page_title': _('Tasks'),
+        'button_text': _('Show'),
     }
     context_object_name = 'tasks'
     ordering = ['id']
+    filterset_class = TaskFilter
+    paginate_by = 10
+    strict = False
 
 
 class TaskCard(DetailView):

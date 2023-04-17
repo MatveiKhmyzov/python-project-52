@@ -25,6 +25,7 @@ class UserIndex(ListView):
         'title': _('Users'),
     }
     context_object_name = 'users'
+    paginate_by = 10
 
 
 class UpdateUser(RequiredLoginUserMixin,

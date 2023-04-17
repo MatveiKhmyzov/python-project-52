@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bootstrap4 %}
 {% load i18n %}
 {% block additionalStyles %}
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
@@ -8,7 +9,34 @@
 {% endblock %}
 {% block content %}
         <h1 class="my-4">{{ page_title }} </h1>
-            <a href="{% url 'create_task' %}">{% translate "Create task" %}</a>
+          <a href="{% url 'create_task' %}">{% translate "Create task" %}</a>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <form class="row align-items-end form-inline center" method="get">
+                        <fieldset>
+                            {% csrf_token %}
+                        <div class="form-group">
+                            {% bootstrap_label filter.label.status label_class='pr-2 pl-3 pr-1 mb-2' %}
+                            {% bootstrap_field filter.form.status field_class='ml-4 pr-5 pl-3 mb-2' %}
+                        </div>
+                        <div class="form-group">
+                            {% bootstrap_label filter.executor.status label_class='pr-2 pl-3 mb-2' %}
+                            {% bootstrap_field filter.form.executor field_class='ml-4 mr-5 mb-2' %}
+                        </div>
+                        <div class="form-group">
+                            {% bootstrap_label filter.labels.status label_class='pr-2 pl-3' %}
+                            {% bootstrap_field filter.form.labels field_class='ml-5 mr-5' %}
+                        </div>
+                        </fieldset>
+                        <div class="form-group">
+                            {% bootstrap_field filter.form.only_authorized_user_tasks field_class='ml-3' %}
+                        </div>
+                        <div class="form-group">
+                            {% bootstrap_button button_text button_type="submit" button_class="btn btn-primary ml-3" %}
+                        </div>
+                    </form>
+                </div>
+            </div>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -22,7 +50,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for task in tasks %}
+                    {% for task in filter.qs %}
                     <tr>
                         <td>{{ task.id }}</td>
                         <td>
