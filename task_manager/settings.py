@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'coverage',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE = {
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -65,7 +65,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+}
 
 ROOT_URLCONF = 'task_manager.urls'
 
@@ -173,3 +174,10 @@ CSRF_TRUSTED_ORIGINS = [
     'https://localhost',
     'https://0.0.0.0'
 ]
+
+ROLLBAR = {
+    'access_token': os.getenv('ROLLBAR_TOKEN'),
+    'environment': 'development' if DEBUG else 'production',
+    'branch': 'master',
+    'root': BASE_DIR,
+}
