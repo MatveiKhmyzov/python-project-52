@@ -160,6 +160,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
 
+ROLLBAR = {
+    'access_token': os.getenv('ROLLBAR_TOKEN'),
+    'environment': 'development' if DEBUG else 'production',
+    'branch': 'master',
+    'root': BASE_DIR,
+}
+
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
         messages.INFO: 'alert-info',
@@ -174,10 +181,3 @@ CSRF_TRUSTED_ORIGINS = [
     'https://localhost',
     'https://0.0.0.0'
 ]
-
-ROLLBAR = {
-    'access_token': os.getenv('ROLLBAR_TOKEN'),
-    'environment': 'development' if DEBUG else 'production',
-    'branch': 'master',
-    'root': BASE_DIR,
-}
