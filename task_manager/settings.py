@@ -180,7 +180,4 @@ MESSAGE_TAGS = {
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.railway.app'
-    'https://127.0.0.1:8000',
-    'https://localhost',
-    'https://0.0.0.0'
 ]
