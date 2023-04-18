@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*',
+    '.railway.app',
     'webserver',
 ]
 
@@ -176,7 +176,7 @@ MESSAGE_TAGS = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://python-project-52-production-ae8a.up.railway.app'
+    'https://*.railway.app'
     'https://127.0.0.1:8000',
     'https://localhost',
     'https://0.0.0.0'
