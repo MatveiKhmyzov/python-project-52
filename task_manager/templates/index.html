@@ -3,5 +3,11 @@
 {% load bootstrap4 %}
 {% load i18n %}
 {% block content %}
-<h1>Very important information</h1>
+    <h1 class="my-4"></h1>
+    <h1 class="my-4"></h1>
+    <div class="card-body p-5">
+        <div class="display-4">{% translate "Task Manager" %}</div>
+        <p class="lead">{% translate "All your tasks in one place" %}</p>
+        <hr>
+    </div>
 {% endblock %}
