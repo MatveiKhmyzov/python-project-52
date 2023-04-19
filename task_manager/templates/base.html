@@ -39,14 +39,14 @@
                 <ul class="navbar-nav">
                   {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                      <a class="nav-link nav-color" href="{% url 'logout_user' %}">{% translate "Sign out" %}</a>
+                      <a class="nav-link nav-color" href="{% url 'logout_user' %}">{% translate "Exit" %}</a>
                     </li>
                   {% else %}
                     <li class="nav-item">
-                      <a class="nav-link nav-color" href="{% url 'login_user' %}">{% translate "Sign in" %}</a>
+                      <a class="nav-link nav-color" href="{% url 'login_user' %}">{% translate "Entrance" %}</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link nav-color" href="{% url 'create_user' %}">{% translate "Sign up" %}</a>
+                      <a class="nav-link nav-color" href="{% url 'create_user' %}">{% translate "Registration" %}</a>
                     </li>
                   {% endif %}
                 </ul>

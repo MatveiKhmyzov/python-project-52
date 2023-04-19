@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 21:16+0300\n"
+"POT-Creation-Date: 2023-04-19 21:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -234,16 +234,15 @@ msgid "Users"
 msgstr "Пользователи"
 
 #: task_manager/templates/base.html:42
-msgid "Sign out"
+msgid "Exit"
 msgstr "Выход"
 
 #: task_manager/templates/base.html:46
-#: task_manager/templates/users/login.html:15 task_manager/users/views.py:82
-msgid "Sign in"
-msgstr "Войти"
+msgid "Entrance"
+msgstr "Вход"
 
 #: task_manager/templates/base.html:49
-msgid "Sign up"
+msgid "Registration"
 msgstr "Регистрация"
 
 #: task_manager/templates/common_delete.html:14
@@ -273,6 +272,10 @@ msgstr "Имя пользователя"
 #: task_manager/templates/users/index.html:16
 msgid "Full name"
 msgstr "Полное имя"
+
+#: task_manager/templates/users/login.html:15 task_manager/users/views.py:82
+msgid "Sign in"
+msgstr "Войти"
 
 #: task_manager/users/views.py:40
 msgid "User changed successfully"
@@ -305,6 +308,12 @@ msgstr "Вы вошли в систему"
 #: task_manager/users/views.py:91
 msgid "You are logged out"
 msgstr "Вы вышли из системы"
+
+#~ msgid "Sign out"
+#~ msgstr "Выход"
+
+#~ msgid "Sign up"
+#~ msgstr "Регистрация"
 
 #, fuzzy
 #~| msgid "Full name"
