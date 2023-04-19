@@ -11,19 +11,19 @@ class TaskFilter(FilterSet):
 
     status = filters.ModelChoiceFilter(
         queryset=Status.objects.all(),
-        empty_label="----- status not selected -----",
+        empty_label=_("----- status not selected -----"),
     )
 
     executor = filters.ModelChoiceFilter(
         queryset=CustomUser.objects.all(),
-        empty_label="--- executor not selected ---",
+        empty_label=_("--- executor not selected ---"),
     )
 
     labels = filters.ModelChoiceFilter(
         queryset=Label.objects.all(),
         field_name='labels',
         label=_('Label'),
-        empty_label="------ label not selected -----",
+        empty_label=_("------ label not selected -----"),
     )
 
     only_authorized_user_tasks = filters.BooleanFilter(

@@ -19,6 +19,7 @@ lint:
 	poetry run flake8 task_manager
 translate:
 	poetry run django-admin makemessages -l ru
+	django-admin compilemessages
 test-coverage:
 	poetry run coverage run manage.py test
 	poetry run coverage xml --include=task_manager/* --omit=task_manager/settings.py
