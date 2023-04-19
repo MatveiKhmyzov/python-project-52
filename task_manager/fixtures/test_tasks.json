@@ -1,16 +1,16 @@
 {
    "create": {
       "fields": {
-         "name": "read book",
-         "description": "Very interesting book",
+         "name": "make photo",
+         "description": "Photo of a lake",
          "status": 1,
          "executor": ""
       }
    },
    "update": {
       "fields": {
-         "name": "buy a bread",
-         "description": "very tasty bread",
+         "name": "finish my website",
+         "description": "Online shop",
          "status": 2,
          "executor": 1
       }
