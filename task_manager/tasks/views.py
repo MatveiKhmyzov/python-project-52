@@ -70,10 +70,10 @@ class UpdateTask(RequiredLoginUserMixin,
     success_url = reverse_lazy('task_list')
     success_message = _("Task changed successfully")
     extra_context = {
-                    'browser_tab_title': _('Task Manager'),
-                    'page_title': _('Changing task'),
-                    'button_text': _('Change'),
-                    }
+        'browser_tab_title': _('Task Manager'),
+        'page_title': _('Changing task'),
+        'button_text': _('Change'),
+    }
 
 
 class DeleteTask(RequiredLoginUserMixin,

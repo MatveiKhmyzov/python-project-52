@@ -39,10 +39,10 @@ class UpdateUser(RequiredLoginUserMixin,
     success_url = reverse_lazy('user_list')
     success_message = _("User changed successfully")
     extra_context = {
-                    'browser_tab_title': _('Task Manager'),
-                    'page_title': _('Changing user'),
-                    'button_text': _('Change'),
-                    }
+        'browser_tab_title': _('Task Manager'),
+        'page_title': _('Changing user'),
+        'button_text': _('Change'),
+    }
 
 
 class CreateUser(SuccessMessageMixin, CreateView):

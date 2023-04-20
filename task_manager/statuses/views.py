@@ -37,10 +37,10 @@ class UpdateStatus(RequiredLoginUserMixin,
     success_url = reverse_lazy('status_list')
     success_message = _("Status changed successfully")
     extra_context = {
-                      'browser_tab_title': _('Task Manager'),
-                      'page_title': _('Changing status'),
-                      'button_text': _('Change'),
-                    }
+        'browser_tab_title': _('Task Manager'),
+        'page_title': _('Changing status'),
+        'button_text': _('Change'),
+    }
 
 
 class CreateStatus(SuccessMessageMixin, CreateView):
