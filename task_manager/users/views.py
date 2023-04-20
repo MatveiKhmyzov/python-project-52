@@ -51,7 +51,7 @@ class CreateUser(SuccessMessageMixin, CreateView):
     extra_context = {
         'browser_tab_title': _('Task Manager'),
         'page_title': _('Registration'),
-        'button_text': _('Create'),
+        'button_text': _('Register'),
     }
 
 

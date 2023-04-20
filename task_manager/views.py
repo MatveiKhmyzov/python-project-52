@@ -17,11 +17,12 @@ class IndexView(TemplateView):
 class LoginUser(SuccessMessageMixin, LoginView):
     next_page = 'home'
     form_class = AuthenticationForm
-    template_name = 'users/login.html'
+    template_name = 'common_create_update.html'
     success_message = _("You are logged in")
     extra_context = {
         'browser_tab_title': _('Task Manager'),
-        'page_title': _('Sign in'),
+        'page_title': _('Entrance'),
+        'button_text': _('Sign in'),
     }
 
 
