@@ -1,15 +1,17 @@
 from .forms import UserForm
 from .models import CustomUser
-from ..mixins import (CustomUserPassesTestMixin,
-                      RequiredLoginUserMixin,
-                      ProtectDeletionUserView)
+from ..mixins import (
+    CustomUserPassesTestMixin,
+    RequiredLoginUserMixin,
+    ProtectDeletionUserView
+)
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import (
-                                    ListView,
-                                    UpdateView,
-                                    CreateView,
-                                    DeleteView
-                                    )
+    ListView,
+    UpdateView,
+    CreateView,
+    DeleteView
+)
 from django.utils.translation import gettext as _
 from django.urls import reverse_lazy
 

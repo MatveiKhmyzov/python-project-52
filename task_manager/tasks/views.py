@@ -3,15 +3,17 @@ from .models import Task
 from .models import Label
 from .filters import TaskFilter
 from django_filters.views import FilterView
-from task_manager.mixins import (RequiredLoginUserMixin,
-                                 TaskAuthorPassesTestMixin)
+from task_manager.mixins import (
+    RequiredLoginUserMixin,
+    TaskAuthorPassesTestMixin
+)
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import (
-                                    UpdateView,
-                                    CreateView,
-                                    DeleteView,
-                                    DetailView
-                                    )
+    UpdateView,
+    CreateView,
+    DeleteView,
+    DetailView
+)
 from django.utils.translation import gettext as _
 from django.urls import reverse_lazy
 
