@@ -117,7 +117,7 @@ msgstr "Статусы"
 
 #: task_manager/statuses/views.py:34
 msgid "Status changed successfully"
-msgstr "Статус успешно изменен"
+msgstr "Статус успешно изменён"
 
 #: task_manager/statuses/views.py:37
 msgid "Changing status"
@@ -138,7 +138,7 @@ msgstr "Удаление статуса"
 
 #: task_manager/statuses/views.py:62
 msgid "Status deleted successfully"
-msgstr "Статус успешно удален"
+msgstr "Статус успешно удалён"
 
 #: task_manager/tasks/filters.py:14
 msgid "----- status not selected -----"
@@ -289,7 +289,7 @@ msgstr "Войти"
 
 #: task_manager/users/views.py:37
 msgid "User changed successfully"
-msgstr "Пользователь успешно изменен"
+msgstr "Пользователь успешно изменён"
 
 #: task_manager/users/views.py:40
 msgid "Changing user"
@@ -309,7 +309,7 @@ msgstr "Удаление пользователя"
 
 #: task_manager/users/views.py:66
 msgid "User deleted successfully"
-msgstr "Пользователь успешно удален"
+msgstr "Пользователь успешно удалён"
 
 #: task_manager/views.py:21
 msgid "You are logged in"
