@@ -12,8 +12,8 @@
     <form method="post">
         {% csrf_token %}
         <p>
-            {% blocktranslate with objects=object %}
-                Are you sure you want to delete {{ object }}?
+            {% blocktranslate with object=object %}
+                Are you sure you want to delete '{{ object }}'?
             {% endblocktranslate %}
         </p>   
         {{ form }}

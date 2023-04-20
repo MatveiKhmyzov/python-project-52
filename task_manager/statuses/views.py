@@ -6,7 +6,8 @@ from django.views.generic import (
                                 CreateView,
                                 DeleteView
                                 )
-from task_manager.mixins import RequiredLoginUserMixin
+from task_manager.mixins import (RequiredLoginUserMixin,
+                                 ProtectDeletionStatusView)
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext as _
 from django.urls import reverse_lazy
@@ -21,6 +22,7 @@ class StatusIndex(ListView):
     }
     context_object_name = 'statuses'
     paginate_by = 10
+    ordering = ['id']
 
 
 class UpdateStatus(RequiredLoginUserMixin,
@@ -53,7 +55,7 @@ class CreateStatus(SuccessMessageMixin, CreateView):
 
 
 class DeleteStatus(RequiredLoginUserMixin,
-                   SuccessMessageMixin,
+                   ProtectDeletionStatusView,
                    DeleteView):
     model = Status
     template_name = 'common_delete.html'

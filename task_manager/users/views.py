@@ -23,6 +23,7 @@ class UserIndex(ListView):
     }
     context_object_name = 'users'
     paginate_by = 10
+    ordering = ['id']
 
 
 class UpdateUser(RequiredLoginUserMixin,

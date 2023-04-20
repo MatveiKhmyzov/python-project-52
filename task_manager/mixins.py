@@ -9,6 +9,7 @@ from django.views import View
 from django.views.generic.detail import SingleObjectMixin
 from task_manager.users.models import CustomUser
 from task_manager.labels.models import Label
+from task_manager.statuses.models import Status
 
 
 class RequiredLoginUserMixin(LoginRequiredMixin):
@@ -62,11 +63,11 @@ class ProtectDeletionUserView(SingleObjectMixin, View):
         try:
             self.object.delete()
             messages.add_message(request, messages.SUCCESS,
-                                 'User deleted successfully')
+                                 _('User deleted successfully'))
             return HttpResponseRedirect(reverse_lazy('user_list'))
         except ProtectedError:
             messages.add_message(request, messages.ERROR,
-                                 'Cannot delete user because it is in use')
+                                 _('Cannot delete user because it is in use'))
             return HttpResponseRedirect(reverse_lazy('user_list'))
 
 
@@ -83,9 +84,30 @@ class ProtectDeletionLabelView(SingleObjectMixin, View):
         if self.object in self.unused_labels:
             self.object.delete()
             messages.add_message(request, messages.SUCCESS,
-                                 'Label deleted successfully')
+                                 _('Label deleted successfully'))
             return HttpResponseRedirect(reverse_lazy('label_list'))
         else:
             messages.add_message(request, messages.ERROR,
-                                 'Cannot delete label because it is in use')
+                                 _('Cannot delete label because it is in use'))
             return HttpResponseRedirect(reverse_lazy('label_list'))
+
+
+class ProtectDeletionStatusView(SingleObjectMixin, View):
+    model = Status
+    unused_labels = Status.objects.filter(task__isnull=True)
+
+    def __init__(self, **kwargs):
+        super().__init__()
+        self.object = None
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object in self.unused_labels:
+            self.object.delete()
+            messages.add_message(request, messages.SUCCESS,
+                                 _('Status deleted successfully'))
+            return HttpResponseRedirect(reverse_lazy('status_list'))
+        else:
+            messages.add_message(request, messages.ERROR,
+                                 _('Cannot delete status because it is in use'))
+            return HttpResponseRedirect(reverse_lazy('status_list'))

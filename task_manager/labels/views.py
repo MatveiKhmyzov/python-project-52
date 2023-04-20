@@ -22,6 +22,7 @@ class LabelIndex(ListView):
     }
     context_object_name = 'labels'
     paginate_by = 10
+    ordering = ['id']
 
 
 class UpdateLabel(RequiredLoginUserMixin,
