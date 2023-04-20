@@ -50,7 +50,7 @@ class CreateTask(SuccessMessageMixin, CreateView):
     extra_context = {
         'browser_tab_title': _('Task Manager'),
         'page_title': _('Create task'),
-        'button_text': _('Create task'),
+        'button_text': _('Create'),
     }
 
     def form_valid(self, form):
