@@ -7,11 +7,11 @@ from task_manager.mixins import (RequiredLoginUserMixin,
                                  TaskAuthorPassesTestMixin)
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import (
-                                UpdateView,
-                                CreateView,
-                                DeleteView,
-                                DetailView
-                                )
+                                    UpdateView,
+                                    CreateView,
+                                    DeleteView,
+                                    DetailView
+                                    )
 from django.utils.translation import gettext as _
 from django.urls import reverse_lazy
 
@@ -68,10 +68,10 @@ class UpdateTask(RequiredLoginUserMixin,
     success_url = reverse_lazy('task_list')
     success_message = _("Task changed successfully")
     extra_context = {
-            'browser_tab_title': _('Task Manager'),
-            'page_title': _('Changing task'),
-            'button_text': _('Change'),
-        }
+                    'browser_tab_title': _('Task Manager'),
+                    'page_title': _('Changing task'),
+                    'button_text': _('Change'),
+                    }
 
 
 class DeleteTask(RequiredLoginUserMixin,

@@ -1,11 +1,11 @@
 from .models import Status
 from .forms import StatusForm
 from django.views.generic import (
-                                ListView,
-                                UpdateView,
-                                CreateView,
-                                DeleteView
-                                )
+                                  ListView,
+                                  UpdateView,
+                                  CreateView,
+                                  DeleteView
+                                  )
 from task_manager.mixins import (RequiredLoginUserMixin,
                                  ProtectDeletionStatusView)
 from django.contrib.messages.views import SuccessMessageMixin
@@ -35,10 +35,10 @@ class UpdateStatus(RequiredLoginUserMixin,
     success_url = reverse_lazy('status_list')
     success_message = _("Status changed successfully")
     extra_context = {
-            'browser_tab_title': _('Task Manager'),
-            'page_title': _('Changing status'),
-            'button_text': _('Change'),
-        }
+                      'browser_tab_title': _('Task Manager'),
+                      'page_title': _('Changing status'),
+                      'button_text': _('Change'),
+                    }
 
 
 class CreateStatus(SuccessMessageMixin, CreateView):

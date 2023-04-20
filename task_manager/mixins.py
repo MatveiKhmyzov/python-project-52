@@ -109,5 +109,6 @@ class ProtectDeletionStatusView(SingleObjectMixin, View):
             return HttpResponseRedirect(reverse_lazy('status_list'))
         else:
             messages.add_message(request, messages.ERROR,
-                                 _('Cannot delete status because it is in use'))
+                                 _('Cannot delete status'
+                                   ' because it is in use'))
             return HttpResponseRedirect(reverse_lazy('status_list'))

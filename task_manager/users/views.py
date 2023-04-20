@@ -5,11 +5,11 @@ from ..mixins import (CustomUserPassesTestMixin,
                       ProtectDeletionUserView)
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import (
-                                ListView,
-                                UpdateView,
-                                CreateView,
-                                DeleteView
-                                )
+                                    ListView,
+                                    UpdateView,
+                                    CreateView,
+                                    DeleteView
+                                    )
 from django.utils.translation import gettext as _
 from django.urls import reverse_lazy
 
@@ -37,10 +37,10 @@ class UpdateUser(RequiredLoginUserMixin,
     success_url = reverse_lazy('user_list')
     success_message = _("User changed successfully")
     extra_context = {
-            'browser_tab_title': _('Task Manager'),
-            'page_title': _('Changing user'),
-            'button_text': _('Change'),
-        }
+                    'browser_tab_title': _('Task Manager'),
+                    'page_title': _('Changing user'),
+                    'button_text': _('Change'),
+                    }
 
 
 class CreateUser(SuccessMessageMixin, CreateView):
