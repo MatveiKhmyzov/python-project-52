@@ -11,8 +11,12 @@
     <h1 class="my-4">{{ page_title}}</h1>
     <form method="post">
         {% csrf_token %}
-        <p>{% translate 'Are you sure you want to delete {{ object }}?' %}</p>
+        <p>
+            {% blocktranslate with objects=object %}
+                Are you sure you want to delete {{ object }}?
+            {% endblocktranslate %}
+        </p>   
         {{ form }}
-        <input class="btn btn-danger" type="submit" value="Yes, delete">
+        <input class="btn btn-danger" type="submit" value="{% translate 'Yes, delete' %}">
     </form>
 {% endblock %}

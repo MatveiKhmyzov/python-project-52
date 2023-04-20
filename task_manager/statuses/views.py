@@ -34,7 +34,7 @@ class UpdateStatus(RequiredLoginUserMixin,
     success_message = _("Status changed successfully")
     extra_context = {
             'browser_tab_title': _('Task Manager'),
-            'page_title': _('Change status'),
+            'page_title': _('Changing status'),
             'button_text': _('Change'),
         }
 
@@ -57,6 +57,7 @@ class DeleteStatus(RequiredLoginUserMixin,
                    DeleteView):
     model = Status
     template_name = 'common_delete.html'
-    extra_context = {'page_title': _('Delete status')}
+    extra_context = {'browser_tab_title': _('Task Manager'),
+                     'page_title': _('Delete status')}
     success_message = _("Status deleted successfully")
     success_url = reverse_lazy('status_list')

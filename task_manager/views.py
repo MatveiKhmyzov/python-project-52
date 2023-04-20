@@ -10,21 +10,19 @@ from django.contrib import messages
 class IndexView(TemplateView):
     template_name = 'index.html'
     extra_context = {
-        'page_title': _('Task Manager')
+        'browser_tab_title': _('Task Manager')
     }
 
 
 class LoginUser(SuccessMessageMixin, LoginView):
+    next_page = 'home'
     form_class = AuthenticationForm
     template_name = 'users/login.html'
     success_message = _("You are logged in")
     extra_context = {
-        'page_title': _('Task Manager'),
-        'title': _('Sign in'),
+        'browser_tab_title': _('Task Manager'),
+        'page_title': _('Sign in'),
     }
-
-    def get_success_url(self):
-        return reverse_lazy('home')
 
 
 class LogoutUser(LogoutView):

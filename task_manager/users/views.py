@@ -18,8 +18,8 @@ class UserIndex(ListView):
     model = CustomUser
     template_name = 'users/index.html'
     extra_context = {
-        'page_title': _('Task Manager'),
-        'title': _('Users'),
+        'browser_tab_title': _('Task Manager'),
+        'page_title': _('Users'),
     }
     context_object_name = 'users'
     paginate_by = 10
@@ -36,8 +36,8 @@ class UpdateUser(RequiredLoginUserMixin,
     success_url = reverse_lazy('user_list')
     success_message = _("User changed successfully")
     extra_context = {
-            'page_title': _('Task Manager'),
-            'title': _('Change user'),
+            'browser_tab_title': _('Task Manager'),
+            'page_title': _('Changing user'),
             'button_text': _('Change'),
         }
 
@@ -49,8 +49,8 @@ class CreateUser(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('login_user')
     success_message = _("User successfully registered")
     extra_context = {
-        'page_title': _('Task Manager'),
-        'title': _('Create user'),
+        'browser_tab_title': _('Task Manager'),
+        'page_title': _('Registration'),
         'button_text': _('Create'),
     }
 
@@ -61,7 +61,8 @@ class DeleteUser(RequiredLoginUserMixin,
                  DeleteView):
     model = CustomUser
     template_name = 'common_delete.html'
-    extra_context = {'page_title': _('Deleting a user')}
+    extra_context = {'browser_tab_title': _('Task Manager'),
+                     'page_title': _('Deleting a user')}
     success_message = _("User deleted successfully")
     success_url = reverse_lazy('user_list')
 

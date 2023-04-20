@@ -35,7 +35,7 @@ class UpdateLabel(RequiredLoginUserMixin,
     success_message = _("Label changed successfully")
     extra_context = {
         'browser_tab_title': _('Task Manager'),
-        'page_title': _('Change label'),
+        'page_title': _('Changing label'),
         'button_text': _('Change'),
     }
 
@@ -58,6 +58,7 @@ class DeleteLabel(RequiredLoginUserMixin,
                   DeleteView):
     model = Label
     template_name = 'common_delete.html'
-    extra_context = {'page_title': _('Deleting a label')}
+    extra_context = {'browser_tab_title': _('Task Manager'),
+                     'page_title': _('Deleting a label')}
     success_message = _("Label deleted successfully")
     success_url = reverse_lazy('label_list')
