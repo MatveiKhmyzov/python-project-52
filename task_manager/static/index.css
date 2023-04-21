@@ -3,6 +3,11 @@
  */
 
 /* Links */
+a,
+a:focus,
+a:hover {
+  color: #0021F2;
+}
 
 /* Custom default button */
 .btn-secondary,
