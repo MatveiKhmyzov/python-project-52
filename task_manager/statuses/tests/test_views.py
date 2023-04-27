@@ -2,7 +2,7 @@ from django.test import TestCase
 from task_manager.statuses.models import Status
 from task_manager.users.models import CustomUser
 from django.urls import reverse_lazy
-from task_manager.utils import get_data
+from task_manager.fixture_reader import get_data
 
 
 class TestCreateStatusView(TestCase):

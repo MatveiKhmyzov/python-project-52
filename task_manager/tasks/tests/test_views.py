@@ -3,7 +3,7 @@ from task_manager.users.models import CustomUser
 from task_manager.tasks.models import Task
 from task_manager.statuses.models import Status
 from django.urls import reverse_lazy
-from task_manager.utils import get_data
+from task_manager.fixture_reader import get_data
 
 
 class TestCreateTaskView(TestCase):

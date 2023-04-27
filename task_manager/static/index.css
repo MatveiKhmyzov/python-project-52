@@ -15,8 +15,8 @@ a:hover {
 .btn-secondary:focus {
   color: #333;
   text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: .05rem solid #fff;
+  background-color: #00000;
+  border: .05rem solid #00000;
 }
 
 
@@ -26,13 +26,13 @@ a:hover {
 
 html,
 body {
-  background-color: #1D382A; /* общий фон без навигационного меню */
+  background-color: #fff0da; /* general background without navigation menu */
 }
 
 body {
   display: -ms-flexbox;
   display: flex;
-  color: #fff;
+  color: #00000;
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
@@ -63,7 +63,7 @@ body {
 
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
+  border-bottom-color: rgba(255, 255, 255, .0);
 }
 
 .nav-masthead .nav-link + .nav-link {
@@ -71,8 +71,8 @@ body {
 }
 
 .nav-masthead .active {
-  color: #ffffff;
-  border-bottom-color: #fff;
+  color: #00000;
+  border-bottom-color: #00000;
 }
 
 
@@ -106,35 +106,131 @@ body {
 }
 
 tr {
-  color: white;
+  color: black;
 }
 
 tbody {
-  background-color: #008947;
+  background-color: #ffb444;
 }
 
 thead {
-  background-color: #008947;
+  background-color: #e38e00;
 }
-
-tr:hover {
-  background-color: green;
- }
  
 .card-body {
-  background-color: #007A20;
-
+  color: black;
+  background-color: #ffc26c;
 }
 
 .card-header {
-  background-color: #1D382A;
+  background-color: #e49b0f;
 
 }
 
 .nav-color {
-  color: #ffff;
+  color: #00000;
 }
 
 .custom-toggler.navbar-toggler {
-  border-color: #ffff;;
-} 
+  border-color: #00000;
+}
+
+.btn-background-color {
+  background-color:#817C2A;
+}
+
+.btn-primary-st {
+  color: #fff;
+  border-bottom: 3px #000609 solid;
+  background-image: -moz-linear-gradient(#0079bb, #005888);
+  background-image: -webkit-linear-gradient(#0079bb, #005888);
+  background-image: linear-gradient(#0079bb, #005888);
+}
+.btn-success-st:hover {
+  background-image: -moz-linear-gradient(#a2d6a2, #5bb75b);
+  background-image: -webkit-linear-gradient(#a2d6a2, #5bb75b);
+  background-image: linear-gradient(#a2d6a2, #5bb75b);
+}
+
+.btn-danger-st {
+  border-bottom: 3px #88201c solid;
+  background-image: -moz-linear-gradient(#e37873, #da4f49);
+  background-image: -webkit-linear-gradient(#e37873, #da4f49);
+  background-image: linear-gradient(#e37873, #da4f49);
+}
+.btn-danger-st:hover {
+  background-image: -moz-linear-gradient(#eba19e, #da4f49);
+  background-image: -webkit-linear-gradient(#eba19e, #da4f49);
+  background-image: linear-gradient(#eba19e, #da4f49);
+}
+
+.pagination.pagination-circle .page-item.active .page-link {
+    border-radius: 50%;
+}
+.pagination .page-item .page-link:hover {
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+    border-radius: .125rem;
+    background-color: #eee;
+}
+.pagination.pg-blue .page-item.active .page-link:hover {
+    background-color: #BD5410;
+}
+.pagination .page-item.active .page-link {
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+    border-radius: .125rem;
+    background-color: #BD5410;
+    color: #fff;
+}
+.pagination .page-item .page-link {
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+    outline: 0;
+    border: 0;
+    background-color: transparent;
+    font-size: .9rem;
+    color: #999;
+    font-weight:bold;
+}
+.pagination.pagination-circle .page-item .page-link:hover {
+    border-radius: 50%;
+}
+.pagination.pagination-circle .page-item .page-link {
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 50%;
+}
+.pagination .page-item.active .page-link{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+.page-link{
+  border:none!important;
+}
+
+/*--------- Pager4 ---------*/
+.Pager4 .pagination .page-item .page-link{
+  color:#BD5410;
+  border:2px solid #BD5410 !important;
+}
+.Pager4 .pagination.pagination-circle .page-item.active .page-link {
+    color:white;
+}
+.Pager4 .pagination.pagination-circle .page-item.active .page-link:hover{
+  background-color:#BD5410;
+}
+.Pager4 .pagination .page-item .page-link.prev, .Pager4 .pagination .page-item .page-link.next{
+  border:0!important;
+}
+.Pager4 .pagination .page-item .page-link.prev:hover, .Pager4 .pagination .page-item .page-link.next:hover{
+  background-color:initial;
+}
+.Pager4 .pagination .page-item .page-link:hover {
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+    border-radius: .125rem;
+    background-color: #eee;
+}
+.Pager4 .pagination.pagination-circle .page-item .page-link:hover {
+    border-radius: 50%;
+}
