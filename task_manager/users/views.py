@@ -68,7 +68,3 @@ class DeleteUser(RequiredLoginUserMixin,
                      'page_title': _('Deleting a user')}
     success_message = _("User deleted successfully")
     success_url = reverse_lazy('user_list')
-
-    # def form_invalid(self, form):
-    #     messages.error(self.request, self.error_message)
-    #     return super().form_invalid(form)

@@ -7,7 +7,7 @@ from django.views.generic import (
     DeleteView
 )
 from task_manager.mixins import (RequiredLoginUserMixin,
-                                 ProtectDeletionLabelView)
+                                 ProtectDeletionLabelViewMixin)
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext as _
 from django.urls import reverse_lazy
@@ -55,7 +55,7 @@ class CreateLabel(SuccessMessageMixin, CreateView):
 
 
 class DeleteLabel(RequiredLoginUserMixin,
-                  ProtectDeletionLabelView,
+                  ProtectDeletionLabelViewMixin,
                   DeleteView):
     model = Label
     template_name = 'common_delete.html'

@@ -8,7 +8,7 @@ from django.views.generic import (
 )
 from task_manager.mixins import (
     RequiredLoginUserMixin,
-    ProtectDeletionStatusView
+    ProtectDeletionStatusViewMixin
 )
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext as _
@@ -57,7 +57,7 @@ class CreateStatus(SuccessMessageMixin, CreateView):
 
 
 class DeleteStatus(RequiredLoginUserMixin,
-                   ProtectDeletionStatusView,
+                   ProtectDeletionStatusViewMixin,
                    DeleteView):
     model = Status
     template_name = 'common_delete.html'

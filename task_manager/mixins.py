@@ -7,8 +7,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic.detail import SingleObjectMixin
-from task_manager.users.models import CustomUser
-from task_manager.labels.models import Label
 from task_manager.statuses.models import Status
 
 
@@ -52,7 +50,6 @@ class TaskAuthorPassesTestMixin(UserPassesTestMixin):
 
 
 class ProtectDeletionUserView(SingleObjectMixin, View):
-    model = CustomUser
 
     def __init__(self, **kwargs):
         super().__init__()
@@ -71,13 +68,12 @@ class ProtectDeletionUserView(SingleObjectMixin, View):
             return HttpResponseRedirect(reverse_lazy('user_list'))
 
 
-class ProtectDeletionLabelView(SingleObjectMixin, View):
-    model = Label
-    unused_labels = Label.objects.filter(tasks__isnull=True)
+class ProtectDeletionLabelViewMixin(SingleObjectMixin, View):
 
     def __init__(self, **kwargs):
         super().__init__()
         self.object = None
+        self.unused_labels = self.model.objects.filter(tasks__isnull=True)
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -92,17 +88,16 @@ class ProtectDeletionLabelView(SingleObjectMixin, View):
             return HttpResponseRedirect(reverse_lazy('label_list'))
 
 
-class ProtectDeletionStatusView(SingleObjectMixin, View):
-    model = Status
-    unused_labels = Status.objects.filter(task__isnull=True)
+class ProtectDeletionStatusViewMixin(SingleObjectMixin, View):
 
     def __init__(self, **kwargs):
         super().__init__()
         self.object = None
+        self.unused_statuses = Status.objects.filter(task__isnull=True)
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
-        if self.object in self.unused_labels:
+        if self.object in self.unused_statuses:
             self.object.delete()
             messages.add_message(request, messages.SUCCESS,
                                  _('Status deleted successfully'))
