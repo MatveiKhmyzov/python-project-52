@@ -3,7 +3,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/ef621430ca780e48ccf3/maintainability)](https://codeclimate.com/github/MatveiKhmyzov/python-project-52/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ef621430ca780e48ccf3/test_coverage)](https://codeclimate.com/github/MatveiKhmyzov/python-project-52/test_coverage)
 ### Link to domain
-[Task Manager](https://python-project-52-production-f24f.up.railway.app)
+[Task Manager](https://python-project-52-production-4241.up.railway.app)
 ### About project
 Task Manager is a task management system. It allows you to set tasks, assign performers and change their statuses.
 ### Auxiliary tools and rules for working with the service
